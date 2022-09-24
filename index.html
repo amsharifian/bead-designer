@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+	<script src="table.js"></script>
+</head>
+
+<body>
+	<div class="flex-container">
+		<div class="child">
+			<div class="flex-row">
+				<button type="button" onclick="AddRow()">Add Row</button>
+				<button type="button" onclick="AddColumn()">Add Column</button>
+				<button type="button" onclick="DelRow()">Del Row</button>
+				<button type="button" onclick="DelColumn()">Del Column</button>
+				<button type="button" onclick="savePDF()">Save PDF</button>
+
+				<p></p>
+				<label for="design"> Enable design</label>
+				<input type="checkbox" id="design" name="design" value="design" onclick="checkDesign()"
+					checked>
+
+				<label id="selectlabel" for="favcolor" style="opacity:0.5;">Select color:</label>
+				<input type="color" id="favcolor" name="favcolor" value="#ff0000" disabled><br><br>
+			</div>
+
+			<div class="flex-row">
+				<table id="shape">
+					<tr>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+	</div>
+
+
+	<script>
+		var table = document.getElementById("shape");
+		var numcols = table.rows[0].cells.length;
+		var numrows = table.rows.length;
+
+		let table_clicked = new Array(numrows);
+		for (var i = 0; i < numrows; i++) {
+			table_clicked[i] = new Array(numcols).fill(0);
+		}
+
+
+		CellInit();
+	</script>
+
+</body>
+
+</html>
